@@ -24,7 +24,8 @@ locality= st.selectbox("locality",encoder["locality"].classes_)
 city= st.selectbox("city",encoder["city"].classes_)
 property_type= st.selectbox("property_type",encoder["property_type"].classes_)
 bedroom_num= st.number_input("bedroom_num",0,10)
-bathroom_num= st.number_input
+bathroom_num = st.number_input("bathroom_num", 0, 10)
+
 balcony_num= st.number_input("balcony_num",0,10)
 furnished= st.selectbox("furnished",encoder["furnished"].classes_)
 age= st.number_input("age",0,100)
@@ -51,10 +52,12 @@ df= pd.DataFrame({
 
 })
 
-
 if st.button("Predict"):
     for col in encoder:
-      df[col]= encoder[col].transform(df[col])
+        df[col] = encoder[col].transform(df[col])
+        # Make sure columns are in same order as training
+df = df[model.feature_names_in_]
 
-prediction= model.predict(df)
-st.success(f"Mumbai house price: {prediction[0]:,.2f}")
+
+    prediction = model.predict(df)
+    st.success(f"Mumbai house price: {prediction[0]:,.2f}")
