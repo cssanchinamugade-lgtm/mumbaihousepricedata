@@ -59,5 +59,5 @@ if st.button("Predict"):
 df = df[model.feature_names_in_]
 
 
-    prediction = model.predict(df)
-    st.success(f"Mumbai house price: {prediction[0]:,.2f}")
+prediction = model.predict(df)
+st.success(f"Mumbai house price: {prediction[0]:,.2f}")
