@@ -41,7 +41,7 @@ df= pd.DataFrame({
     "city":[city],
     "property_type":[property_type],
     "bedroom_num":[bedroom_num],
-    "bathroom_num":[bathroom],
+    "bathroom_num":[bathroom_num],
     "balcony_num":[balcony_num],
     "furnished":[furnished],
     "age":[age],
